@@ -10,25 +10,13 @@ environment:
 
 dev_dependencies:
   kernel: any
-  front_end: any
-  package_config: any
-  args: any
-
 
 dependency_overrides:
   kernel:
-    path: F:\flutter\alsdk\pkg\kernel
-  vm:
-    path: F:\flutter\alsdk\pkg\vm
-  frontend_server:
-    path: F:\flutter\alsdk\pkg\frontend_server
-  front_end:
-    path: F:\flutter\alsdk\pkg\front_end
-  dev_compiler:
-    path: F:\flutter\alsdk\pkg\dev_compiler
-  package_config:
-    path: F:\flutter\alsdk\third_party\pkg_tested\package_config
-
+    git:
+      url: https://gitee.com/idouziAndroid/alsdk.git
+      ref: stable/v1.22.3
+      path: pkg/kernel
   # To add assets to your package, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
