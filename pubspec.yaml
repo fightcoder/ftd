@@ -14,8 +14,8 @@ dev_dependencies:
 dependency_overrides:
   kernel:
     git:
-      url: https://gitee.com/idouziAndroid/alsdk.git
-      ref: stable/v1.22.3
+      url: git@github.com:alibaba-flutter/sdk.git
+      ref: stable/1.22.3
       path: pkg/kernel
   # To add assets to your package, add an assets section, like this:
   # assets:
