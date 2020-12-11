@@ -29,7 +29,8 @@ void _incrementCounter(String p1,int p2){
 使用方法：
 
 1. 直接将该项目作为本地库依赖
-2. 对`flutter tools`进行patch
+2. 对`flutter tools`进行patch,在Flutter仓库目录下执行:`git apply --3way [0001-ft-dill-transform-patch.patch]路径`
+
 
 
 
