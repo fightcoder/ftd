@@ -1,6 +1,5 @@
 import 'package:kernel/ast.dart';
 
-///花费工具类
 class Stores{
 
 
