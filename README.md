@@ -1,12 +1,17 @@
 ### Flutter Dill Transform
 
-提供多个实用的注解以供开发。Thanks Aspectd : https://github.com/alibaba-flutter/aspectd
+提供多个实用的注解以供开发。
 
 #### 1.ClickShake注解，作用于方法：
 
 实现防多次点击、防抖动功能。
 
-
+```dart
+@ClickShake()
+testClick()async{
+  print('testCost1');
+}
+```
 
 #### 2.FunctionLog注解，作用于方法：
 
@@ -29,3 +34,5 @@ void _incrementCounter(String p1,int p2){
 
 
 暂时与Aspectd不能两者完全兼容，需要自己下载源码修改兼容。
+
+Thanks Aspectd : https://github.com/alibaba-flutter/aspectd
