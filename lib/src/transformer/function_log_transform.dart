@@ -48,11 +48,11 @@ class FunctionDebugTransform extends RecursiveVisitor<void> {
             block.statements.insert(0,startTimeDeclarationImpl);
           }
 
-          if(node.function.returnType is VoidType){
+          if(node.function.returnType is VoidType || !(block.statements.last is ReturnStatement)){
             ///因为可能存在返回类型是VoidType，但是函数体内包含return关键字导致方法提前结束，所以需要调用addStatementForReturnStatment
             addStatementForReturnStatement(block.statements);
             addStatementForVoidType(block.statements);
-          }else{ ///有返回值的方法，这里最好写 else if,可能是不同的DartType不同的处理方式
+          }else{ ///有[可能有]返回值的方法，这里最好写 else if,可能是不同的DartType不同的处理方式
             addStatementForReturnStatement(block.statements);
           }
           break;

@@ -1,6 +1,6 @@
 import 'dart:io';
-import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:ft/ft.dart';
 
 
 void main() {
@@ -44,7 +44,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   int i = 0;
-  void _incrementCounter(String p1,int p2) async{
+
+  @ClickShake()
+  void _incrementCounter(String p1,int p2){
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
@@ -56,6 +58,10 @@ class _MyHomePageState extends State<MyHomePage> {
   }
   bool flag = false;
 
+  @ClickShake()
+  testCost()async{
+    print('testCost1');
+  }
   @override
   Widget build(BuildContext context) {
     // This method is cd ..rerun every time setState is called, for instance as done
@@ -77,19 +83,21 @@ class _MyHomePageState extends State<MyHomePage> {
             Listener(
               child: Text('click Listener'),
               onPointerDown: (PointerDownEvent event){
+                testCost();
               },
+            ),
+            Padding(padding: EdgeInsets.only(top: 30)),
+            GestureDetector(
+              onTapDown: (_){
+                print(1);
+              },
+              child: Container(
+                child: Text('click gesture',style: TextStyle(color: Colors.blue),),
+                color: Colors.red,
+              ),
             ),
             const Text(
               'You have pushed the button this many times:',
-            ),
-            Switch(
-              value: this.flag,
-              activeColor: Colors.red,
-              onChanged: (value) {
-                setState(() {
-                  this.flag = value;
-                });
-              },
             ),
             Text(
               '$_counter',
@@ -100,7 +108,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-//          funTest();
           _incrementCounter('p1',2);
         },
         tooltip: 'Increment',

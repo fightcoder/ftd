@@ -16,7 +16,7 @@ import 'package:frontend_server/frontend_server.dart' as frontend
         argParser,
         usage,
         ProgramTransformer;
-import 'package:ft/src/transformer/aop_transformer.dart';
+import '../transformer/aop_transformer.dart';
 import 'package:kernel/ast.dart';
 import 'package:path/path.dart' as path;
 import 'package:vm/incremental_compiler.dart';
