@@ -12,11 +12,11 @@
 
    - for Windows :
 
-     ![image-20201214145517042](C:\Users\wangziyang\AppData\Roaming\Typora\typora-user-images\image-20201214145517042.png)
+     ![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/423dc89c0f354017b89ea405b28f765a~tplv-k3u1fbpfcp-watermark.image)
 
    - for Mac:
 
-     ![img](file:///C:/Users/wangziyang/Documents/WXWork/1688853443812878/Cache/Image/2020-12/5c89231c-9717-4cbd-9554-06abcc3193f3.png)
+     ![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e15e7275de5f4bd08c08252c4a9ac975~tplv-k3u1fbpfcp-watermark.image)
 
 
 
