@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ft/ft.dart';
+import 'package:ftd/ftd.dart';
 
 
 void main() {
