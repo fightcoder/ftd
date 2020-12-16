@@ -8,7 +8,6 @@ import 'function_log_transform.dart';
 import 'store_utils.dart';
 
 class FtTransformer extends FlutterProgramTransformer {
-  /// The [packageUris] parameter must not be null, but may be empty.
   FtTransformer();
 
   Component platformStrongComponent;
@@ -56,18 +55,6 @@ class FtTransformer extends FlutterProgramTransformer {
             for(Constructor constructor in cls.constructorsInternal){
               if(constructor.name.name == 'now'){
                 Stores.dateTimeNowConstructor = constructor;
-              }
-            }
-          }
-        }
-      }
-      if(library.name == 'dart.collection'){
-        for(Class cls in library.classes){
-          final String clsName = cls.name;
-          if (clsName == 'LinkedHashMap'){
-            for(Procedure procedure in cls.proceduresInternal){
-              if(procedure.name.name == 'from'){
-                Stores.linkHashMapFromProcedure = procedure;
               }
             }
           }

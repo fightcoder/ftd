@@ -13,9 +13,9 @@ bool isDoubleClick(int intervalTime,String tips){
   final int difTime = now - preCallTime;
   preCallTime = now;
   if(difTime > 100 && difTime < intervalTime){
-    print('使用注解click shake生效');
-    if(tips.isNotEmpty){
-    }
+//    print('使用注解click shake生效');
+//    if(tips.isNotEmpty){
+//    }
     return true;
   }
   return false;

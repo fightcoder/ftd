@@ -12,8 +12,6 @@ class Stores{
   ///int
   static Reference intReference;
 
-  ///LinkHashMap factory::from
-  static Procedure linkHashMapFromProcedure;
 
   ///String reference
   static Reference stringReference;
