@@ -5,10 +5,10 @@ import 'package:kernel/ast.dart';
 import 'package:vm/target/flutter.dart';
 import 'click_shake_transform.dart';
 import 'function_log_transform.dart';
-import 'store_utils.dart';
+import '../tool/store_utils.dart';
 
 class FtTransformer extends FlutterProgramTransformer {
-  /// The [packageUris] parameter must not be null, but may be empty.
+
   FtTransformer();
 
   Component platformStrongComponent;
@@ -75,4 +75,5 @@ class FtTransformer extends FlutterProgramTransformer {
       }
     }
   }
+
 }
