@@ -5,9 +5,10 @@ import 'package:kernel/ast.dart';
 import 'package:vm/target/flutter.dart';
 import 'click_shake_transform.dart';
 import 'function_log_transform.dart';
-import 'store_utils.dart';
+import '../tool/store_utils.dart';
 
 class FtTransformer extends FlutterProgramTransformer {
+
   FtTransformer();
 
   Component platformStrongComponent;
@@ -60,6 +61,19 @@ class FtTransformer extends FlutterProgramTransformer {
           }
         }
       }
+      if(library.name == 'dart.collection'){
+        for(Class cls in library.classes){
+          final String clsName = cls.name;
+          if (clsName == 'LinkedHashMap'){
+            for(Procedure procedure in cls.proceduresInternal){
+              if(procedure.name.name == 'from'){
+                Stores.linkHashMapFromProcedure = procedure;
+              }
+            }
+          }
+        }
+      }
     }
   }
+
 }

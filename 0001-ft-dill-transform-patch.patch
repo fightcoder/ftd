@@ -70,7 +70,7 @@ index 0000000000..85576a5e74
 +const String frontendServerDartSnapshot = 'frontend_server.dart.snapshot';
 +
 +class DillTransform {
-+static String ftName = 'ft';
++static String ftName = 'ftd';
 +
 +  static Future<Directory> getPackagePathFromConfig(
 +      String packageConfigPath, String packageName) async {

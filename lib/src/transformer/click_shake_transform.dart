@@ -2,7 +2,7 @@ import 'package:kernel/ast.dart';
 // ignore: implementation_imports
 import 'package:front_end/src/fasta/kernel/internal_ast.dart';
 
-import 'store_utils.dart';
+import '../tool/store_utils.dart';
 
 ///防抖动
 class ClickShakeTransform extends RecursiveVisitor<void> {

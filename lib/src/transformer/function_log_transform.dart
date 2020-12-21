@@ -2,7 +2,7 @@ import 'package:kernel/ast.dart';
 // ignore: implementation_imports
 import 'package:front_end/src/fasta/kernel/internal_ast.dart';
 
-import 'store_utils.dart';
+import '../tool/store_utils.dart';
 
 
 ///aaa
@@ -13,6 +13,7 @@ class FunctionDebugTransform extends RecursiveVisitor<void> {
   void visitClass(Class node) {
     super.visitClass(node);
   }
+
   @override
   void visitProcedure(Procedure node) {
 
@@ -110,20 +111,22 @@ class FunctionDebugTransform extends RecursiveVisitor<void> {
         final ReturnStatement returnStatement = statement;
         ///如果它自己是调用的一个方法，需要改变方法的调用接收
         VariableDeclarationImpl declarationImpl ;
-        if(returnStatement.expression!=null && returnStatement.expression is InvocationExpression){
-          final MethodInvocation methodInvocation = returnStatement.expression;
-          declarationImpl = VariableDeclarationImpl.forValue(methodInvocation);
-          declarationImpl.name = 'temp';
-          declarationImpl.type = const DynamicType();
-          declarationImpl.parent = methodInvocation.parent;
-          final int index = statements.indexOf(returnStatement);
-          statements[index] = declarationImpl;
-          final AsExpression asExpression = AsExpression(VariableGetImpl(declarationImpl,null,null,forNullGuardedAccess: false),const DynamicType());
-          final ReturnStatementImpl returnStatementImpl = ReturnStatementImpl(false,asExpression);
-          if(index == statements.length -1){
-            temStatement.add(returnStatementImpl);
-          }else{
-            temStatement.insert(index+1, returnStatementImpl);
+        if(returnStatement.expression!=null){
+          if(returnStatement.expression is Expression){
+            final Expression expression = returnStatement.expression;
+            declarationImpl = VariableDeclarationImpl.forValue(expression);
+            declarationImpl.name = 'temp';
+            declarationImpl.type = const DynamicType();
+            declarationImpl.parent = expression.parent;
+            final int index = statements.indexOf(returnStatement);
+            statements[index] = declarationImpl;
+            final AsExpression asExpression = AsExpression(VariableGetImpl(declarationImpl,null,null,forNullGuardedAccess: false),const DynamicType());
+            final ReturnStatementImpl returnStatementImpl = ReturnStatementImpl(false,asExpression);
+            if(index == statements.length -1){
+              temStatement.add(returnStatementImpl);
+            }else{
+              temStatement.insert(index+1, returnStatementImpl);
+            }
           }
         }
         _addStatementForReturnFuc(statements,statement,declarationImpl);

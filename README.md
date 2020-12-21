@@ -30,6 +30,19 @@
 
 实现Flutter防多次点击、防抖动功能。可自己设置有效间隔时间，默认间隔时间是200ms。
 
+如果依赖了该库且执行了以上1-3步，那么默认情况下是支持所有通过`GestureRecognizer`实现的可点击的组件的，并且只会对其中的`onTap`、`onTapDown`、`onDown`这三个行为单击行为做防多次点击处理，不会影响其他点击行为。
+
+```dart
+GestureDetector(
+  onTapDown:(_){
+      print('onTapDown');//快速点击只会调用一次
+  }
+)
+
+```
+
+另外，为了补充上述情况的其他行为操作（例如Listener、自定义的行为），提供`ClickShake`注解，能对特定的方法进行处理。
+
 ```dart
 @ClickShake(intervalTime = 300)
 testClick()async{
@@ -51,14 +64,16 @@ void _incrementCounter(String p1,int p2){
 //<-- _incrementCounter cost time(耗时) = xx[ms]
 ```
 
-### 3.实现中...
+### 3.更多实现中...
 
 
 
-因个人精力有限，如果你有好的想法或者期待实现的功能，请提交PR或者联系我，我看到会尽快处理，希望大家能一起发挥想象力，利用Dill Transform实现更多的功能！
+因个人精力有限，如果你有好的想法或者期待实现的功能，又或者你能花费自己宝贵的时间提供更优秀的代码，请提交PR或者联系我，我看到会尽快处理，希望大家能一起发挥想象力，利用Dill Transform实现更多的功能！
 
 
 
 **注意：暂时与Aspectd不能两者完全兼容，需要自己下载源码修改兼容。**
 
-**Thanks Aspectd : https://github.com/alibaba-flutter/aspectd**
+**Thanks Aspectd : **
+
+**https://github.com/alibaba-flutter/aspectd**
