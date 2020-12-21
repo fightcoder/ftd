@@ -68,7 +68,7 @@ void _incrementCounter(String p1,int p2){
 //<-- _incrementCounter cost time(耗时) = xx[ms]
 ```
 
-### 3.更多实现中(模块化的方法统计打印？代码生成支持支持获取修改私有属性？)...
+### 3.更多实现中(模块化的方法统计打印、过滤？代码生成支持支持获取修改私有属性？)...
 
 
 
