@@ -1,8 +1,8 @@
-## Flutter Dill Transform
+## Flutter Transform  Dill
 
-提供多个简单实用的注解供Flutter开发、调试，提高开发效率，解决你的烦恼。
+提供多个简单实用的注解供Flutter开发、调试，提高开发效率，也是学习dill操作的经典案例。
 
-
+**目前支持Flutter版本：v1.22.3/v1.22.4
 
 ### 使用方法：
 
@@ -21,6 +21,10 @@
 
 
 3. 删除`flutter/bin/cache/flutter_tools.stamp`,执行`flutter doctor -v`
+
+之所以是需要以上的步骤是因为Flutter本身没有提供对Flutter tools构建的hook接口，也没有开放其内部transform的流程，不过在flutter的官网issue中有提到这部分的讨论，我相信官方不久的将来也会支持这个功能，那个时候肯定也能以很低的成本将目前的dill转换功能迁移适配。
+
+另外，接入的过程主要耗时估计在对Flutter版本的升级，以及对Dart sdk完整源码的依赖上，第一次最好在网络好的情况下进行。
 
 
 
@@ -64,16 +68,21 @@ void _incrementCounter(String p1,int p2){
 //<-- _incrementCounter cost time(耗时) = xx[ms]
 ```
 
-### 3.更多实现中...
+### 3.更多实现中(模块化的方法统计打印？代码生成支持支持获取修改私有属性？)...
 
 
 
 因个人精力有限，如果你有好的想法或者期待实现的功能，又或者你能花费自己宝贵的时间提供更优秀的代码，请提交PR或者联系我，我看到会尽快处理，希望大家能一起发挥想象力，利用Dill Transform实现更多的功能！
 
+### 如何调试验证：
 
+如果你需要调试本项目的代码，又或者是想自己调试验证开发自己的transform是否正确，可通过以下两步骤：
 
-**注意：暂时与Aspectd不能两者完全兼容，需要自己下载源码修改兼容。**
+- 在`start.dart`中Debug `start.dart`，此处需要自行补充`args`参数
+- 生成的dill文件验证与否符合预期，在完整的Dart SDK目录下，进入`pkg/vm/bin`,通过命令`dart dump_kernel.dart [已经生成的dill文件路径] [转化后的.txt文件]`
 
-**Thanks Aspectd : **
+在调试验证过程中，也可能会遇到一些莫名的问题，如果你**仔细思考与实践**后还无法解决，可在`issue`区讨论或者联系我：`coderwangzi@163.com`。
 
-**https://github.com/alibaba-flutter/aspectd**
+**注：暂时与Aspectd不能两者完全兼容，需要自己下载源码修改兼容。**
+
+**Thanks Aspectd:https://github.com/alibaba-flutter/aspectd**

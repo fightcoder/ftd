@@ -15,37 +15,13 @@ dev_dependencies:
   package_config: any
   args: any
 
+#考虑到很多人从github上拉取很慢，在gitee上备了一份sdk，原地址为:https://github.com/alibaba-flutter/sdk
 dependency_overrides:
   kernel:
     git:
       url: git@gitee.com:idouziAndroid/alsdk.git
       ref: stable/v1.22.3
       path: pkg/kernel
-  vm:
-    git:
-      url: git@gitee.com:idouziAndroid/alsdk.git
-      ref: stable/v1.22.3
-      path: pkg/vm
-  frontend_server:
-    git:
-      url: git@gitee.com:idouziAndroid/alsdk.git
-      ref: stable/v1.22.3
-      path: pkg/frontend_server
-  front_end:
-    git:
-      url: git@gitee.com:idouziAndroid/alsdk.git
-      ref: stable/v1.22.3
-      path: pkg/front_end
-  dev_compiler:
-    git:
-      url: git@gitee.com:idouziAndroid/alsdk.git
-      ref: stable/v1.22.3
-      path: pkg/dev_compiler
-  package_config:
-    git:
-      url: git@gitee.com:idouziAndroid/alsdk.git
-      ref: stable/v1.22.3
-      path: third_party/pkg_tested/package_config
   # To add assets to your package, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
